@@ -1,3 +1,4 @@
-fastapi
-uvicorn
-edge-tts
+fastapi>=0.100.0
+uvicorn>=0.22.0
+edge-tts>=6.1.0
+gunicorn>=20.1.0
