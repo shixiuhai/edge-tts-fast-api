@@ -19,5 +19,5 @@ COPY . .
 # 暴露端口
 EXPOSE 8000
 
-# 启动命令 - 使用 gunicorn 支持多进程
-CMD ["gunicorn", "main:app", "--workers", "4", "--worker-class", "uvicorn.workers.UvicornWorker", "--bind", "0.0.0.0:8000", "--timeout", "120"]
+# 启动命令 - 使用环境变量设置工作进程数，默认为4
+CMD ["sh", "-c", "gunicorn main:app --workers ${WORKERS:-4} --worker-class uvicorn.workers.UvicornWorker --bind 0.0.0.0:8000 --timeout 120"]
